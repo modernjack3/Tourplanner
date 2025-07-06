@@ -1,0 +1,4 @@
+--patch-module
+at.fhtw.tourplannercommon=_
+--add-reads
+at.fhtw.tourplannercommon=ALL-UNNAMED

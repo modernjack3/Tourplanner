@@ -1,0 +1,15 @@
+
+services:
+  db:
+    image: postgres:16
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: tourplanner
+      POSTGRES_USER: tour
+      POSTGRES_PASSWORD: tour
+    ports:
+      - "5432:5432"
+volumes:
+  db_data:
+    driver: local

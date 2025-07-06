@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="at.fhtw.tourplanner.view.controller.EditLogController"
+      spacing="10" style="-fx-padding: 10;">
+    <Label text="Edit Tour Log" style="-fx-font-size: 16; -fx-font-weight: bold;" />
+
+    <fx:include source="LogForm.fxml" fx:id="logForm"/>
+
+    <Label fx:id="errorLabel" style="-fx-text-fill: red;" />
+    <Button text="Save" fx:id="saveButton" onAction="#onSave"/>
+</VBox>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="at.fhtw.tourplanner.view.controller.MainController"
+            prefWidth="1000" prefHeight="600">
+
+    <top>
+        <HBox spacing="10" style="-fx-padding: 10;">
+            <Label text="Search:"/>
+            <TextField fx:id="searchField" />
+            <!-- Dark‑Mode‑Toggle rechts oben -->
+            <Pane HBox.hgrow="ALWAYS"/> <!-- Platzhalter zum Rechts‑Ausrichten -->
+            <ToggleButton fx:id="darkToggle"
+                          text="🌙"
+                          onAction="#toggleDarkMode">
+                <tooltip>
+                    <Tooltip text="Toggle Dark Mode"/>
+                </tooltip>
+            </ToggleButton>
+        </HBox>
+    </top>
+
+    <left>
+        <VBox spacing="10" style="-fx-padding: 10;">
+            <ListView fx:id="tourListView" prefWidth="200" prefHeight="400"/>
+
+            <HBox spacing="10">
+                <Button text="Add Tour" onAction="#onAddTour"/>
+                <Button text="Delete" onAction="#onDeleteTour"/>
+            </HBox>
+            <Button text="Show Map" onAction="#onShowMap"/>
+        </VBox>
+    </left>
+
+    <right>
+        <VBox style="-fx-padding: 10;">
+            <Label text="Map Placeholder" style="-fx-font-weight: bold;"/>
+            <Label text="[Map goes here]" />
+        </VBox>
+    </right>
+
+    <bottom>
+        <VBox spacing="10" style="-fx-padding: 10;">
+            <Label text="Tour Logs" style="-fx-font-weight: bold;"/>
+            <TableView fx:id="logsTable" prefHeight="150">
+                <columns>
+                    <TableColumn fx:id="colDateTime" text="DateTime"/>
+                    <TableColumn fx:id="colComment"  text="Comment"/>
+                    <TableColumn fx:id="colDifficulty" text="Difficulty"/>
+                    <TableColumn fx:id="colDistance" text="Distance"/>
+                    <TableColumn fx:id="colTime" text="Time"/>
+                    <TableColumn fx:id="colRating" text="Rating"/>
+                </columns>
+            </TableView>
+
+            <HBox spacing="10">
+                <Button text="Add Log" onAction="#onAddLog"/>
+                <Button text="Edit Log" onAction="#onEditLog"/>
+                <Button text="Delete Log" onAction="#onDeleteLog"/>
+
+                <Pane HBox.hgrow="ALWAYS"/> <!-- Abstandhalter -->
+                <Button text="Generate Tour‑Report" onAction="#onGenerateTourReport"/>
+                <Button text="Generate Summary" onAction="#onGenerateSummaryReport"/>
+            </HBox>
+        </VBox>
+    </bottom>
+</BorderPane>

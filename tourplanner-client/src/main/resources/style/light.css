@@ -1,0 +1,4 @@
+/* optional – kleine Verfeinerungen für den hellen Standard‑Look */
+.root {              /* Grundfarbe Fenster‑Hintergrund            */
+    -fx-background-color: white;
+}

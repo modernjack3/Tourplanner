@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="at.fhtw.tourplanner.view.controller.AddLogController"
+      spacing="10" style="-fx-padding: 10;">
+
+    <Label text="Add a New Tour Log" style="-fx-font-size: 16; -fx-font-weight: bold;" />
+
+    <!-- Hier binden wir die reusable UI-Komponente ein-->
+    <fx:include source="LogForm.fxml" fx:id="logForm"/>
+
+    <!-- Error label for validation feedback -->
+    <Label fx:id="errorLabel" style="-fx-text-fill: red;" />
+
+    <!-- Create button -->
+    <Button fx:id="createButton" text="Create" onAction="#onCreate"/>
+</VBox>

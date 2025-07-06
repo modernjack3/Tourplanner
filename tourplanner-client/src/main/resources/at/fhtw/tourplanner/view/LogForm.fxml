@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="at.fhtw.tourplanner.view.controller.LogFormController"
+      spacing="10">
+
+    <!-- HBox for date and time -->
+    <HBox spacing="5">
+        <Label text="Date:"/>
+        <DatePicker fx:id="datePicker" />
+
+        <Label text="Time (HH:MM):"/>
+        <TextField fx:id="timeField" promptText="e.g. 14:30"/>
+    </HBox>
+
+    <!-- Comment input -->
+    <TextField fx:id="commentField" promptText="Comment"/>
+
+    <!-- Difficulty combo box -->
+    <HBox spacing="5">
+        <Label text="Difficulty:"/>
+        <ComboBox fx:id="difficultyBox" />
+    </HBox>
+
+    <!-- Distance and Total Time -->
+    <HBox spacing="5">
+        <Label text="Distance:"/>
+        <TextField fx:id="distanceField" promptText="km"/>
+
+        <Label text="Total Time:"/>
+        <TextField fx:id="totalTimeField" promptText="hours"/>
+    </HBox>
+
+    <!-- Rating -->
+    <HBox spacing="5">
+        <Label text="Rating:"/>
+        <TextField fx:id="ratingField" promptText="1-5"/>
+    </HBox>
+
+
+</VBox>

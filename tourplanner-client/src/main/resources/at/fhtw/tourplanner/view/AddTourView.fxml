@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+
+<?import javafx.scene.layout.HBox?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="at.fhtw.tourplanner.view.controller.AddTourController"
+      spacing="10" style="-fx-padding: 10;">
+
+    <Label text="Add a new Tour" style="-fx-font-size: 16; -fx-font-weight: bold;"/>
+
+    <!-- User input fields -->
+    <HBox spacing="5">
+        <Label text="Tour Name:"/>
+        <TextField fx:id="nameField" promptText="Tour Name"/>
+    </HBox>
+
+    <HBox spacing="5">
+        <Label text="Means of Transport:"/>
+        <ComboBox fx:id="transportField">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Bike" />
+                    <String fx:value="Car" />
+                    <String fx:value="Walking" />
+                </FXCollections>
+            </items>
+        </ComboBox>
+    </HBox>
+
+    <HBox spacing="5">
+        <Label text="From:"/>
+        <TextField fx:id="fromField" promptText="Starting Place"/>
+        <Label text="To:"/>
+        <TextField fx:id="toField" promptText="Target Place"/>
+    </HBox>
+
+    <HBox spacing="5">
+        <Label text="Distance Travelled:"/>
+        <TextField fx:id="distanceField" promptText="km"/>
+        <Label text="Duration [minutes]:"/>
+        <TextField fx:id="timeField" promptText="0"/>
+    </HBox>
+
+    <HBox spacing="5">
+        <Label text="Description:"/>
+        <TextArea fx:id="descField" promptText="Description of the tour"/>
+    </HBox>
+
+    <!-- Error label for validation feedback -->
+    <Label fx:id="errorLabel" style="-fx-text-fill: red;"/>
+
+    <!-- Create button is disabled if validation fails -->
+    <Button fx:id="createButton" text="Create" onAction="#onCreate"/>
+</VBox>

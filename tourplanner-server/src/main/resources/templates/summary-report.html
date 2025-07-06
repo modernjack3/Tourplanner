@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8"/>
+  <title>Tour‑Summary</title>
+  <style>
+    body  { font-family: DejaVu Sans, sans-serif; }
+    h1    { border-bottom: 1px solid #999; }
+    table { width: 100%; border-collapse: collapse; font-size: 10pt; }
+    th,td { border: 1px solid #ccc; padding: 4px; }
+    th    { background: #eee; }
+  </style>
+</head>
+<body>
+
+<h1>Tour‑Summary</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Tour</th>
+    <th>Logs</th>
+    <th>Ø Distance (km)</th>
+    <th>Ø Time (min)</th>
+    <th>Ø Rating</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="row : ${rows}">
+    <td th:text="${row.tour.name}">Name</td>
+    <td th:text="${row.numLogs}">0</td>
+    <td th:text="${#numbers.formatDecimal(row.avgDistance,1,1)}">0</td>
+    <td th:text="${#numbers.formatDecimal(row.avgTime,1,1)}">0</td>
+    <td th:text="${#numbers.formatDecimal(row.avgRating,1,1)}">0</td>
+  </tr>
+  <tr th:if="${rows.isEmpty()}">
+    <td colspan="5" style="text-align:center; font-style: italic;">No tours available</td>
+  </tr>
+  </tbody>
+</table>
+
+</body>
+</html>

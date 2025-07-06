@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8"/>
+  <title th:text="'Tour‑Report – ' + ${tour.name}">Tour‑Report</title>
+  <style>
+    body  { font-family: DejaVu Sans, sans-serif; }
+    h1    { border-bottom: 1px solid #999; }
+    table { width: 100%; border-collapse: collapse; font-size: 10pt; }
+    th,td { border: 1px solid #ccc; padding: 4px; }
+    th    { background: #eee; }
+  </style>
+</head>
+<body>
+
+<h1 th:text="${tour.name}">Tour Name</h1>
+
+<p>
+  <strong>From / To:</strong>
+  <span th:text="${tour.fromLocation}">From</span> →
+  <span th:text="${tour.toLocation}">To</span><br/>
+  <strong>Transport:</strong> <span th:text="${tour.transportType}">Car</span><br/>
+  <strong>Distance:</strong> <span th:text="${#numbers.formatDecimal(tour.distance,1,1)}">0</span> km<br/>
+  <strong>Estimated time:</strong> <span th:text="${#numbers.formatDecimal(tour.estimatedTime,1,1)}">0</span> min
+</p>
+
+<h2>Tour Logs (<span th:text="${logs.size()}">0</span>)</h2>
+
+<table>
+  <thead>
+  <tr>
+    <th>Date / Time</th>
+    <th>Comment</th>
+    <th>Difficulty</th>
+    <th>Distance (km)</th>
+    <th>Time (min)</th>
+    <th>Rating</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="log : ${logs}">
+    <td th:text="${#temporals.format(log.dateTime, fmtDate)}">01.01.</td>
+    <td th:text="${log.comment}">comment</td>
+    <td th:text="${log.difficulty}">Easy</td>
+    <td th:text="${#numbers.formatDecimal(log.distance,1,1)}">0</td>
+    <td th:text="${#numbers.formatDecimal(log.totalTime,1,1)}">0</td>
+    <td th:text="${log.rating}">0</td>
+  </tr>
+  <tr th:if="${logs.isEmpty()}">
+    <td colspan="6" style="text-align:center; font-style: italic;">No logs recorded</td>
+  </tr>
+  </tbody>
+</table>
+
+</body>
+</html>

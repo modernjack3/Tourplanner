@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>at.fhtw</groupId>
+    <artifactId>tourplanner-parent</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>tourplanner-common</module>
+
+        <module>tourplanner-server</module>
+
+        <module>tourplanner-client</module>
+    </modules>
+
+    <!--
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>23</java.version>
+        <javafx.version>21.0.6</javafx.version>
+        <spring.boot.version>3.4.6</spring.boot.version>
+        <junit.version>5.10.2</junit.version>
+        <lombok-version>1.18.32</lombok-version>
+    </properties>
+    -->
+
+    <!-- Zentrale Versions‑Properties -->
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>21</java.version>          <!-- Server läuft auf 21; Client darf höher -->
+        <javafx.version>21.0.6</javafx.version>
+        <spring.boot.version>3.4.6</spring.boot.version>
+        <junit.version>5.10.2</junit.version>
+        <lombok.version>1.18.32</lombok.version>  <!-- KEIN Bindestrich -->
+        <mapstruct.version>1.5.5.Final</mapstruct.version>
+
+    </properties>
+
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- Spring‑Boot BOM für alle Unterprojekte -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!--MapStruct ist eine Java-Bibliothek, die es ermöglicht, Daten zwischen verschiedenen Java-Bean-Typen zu mappen,
+            indem sie während der Kompilierung Code generiert. Es handelt sich um einen Annotation-Prozessor, der Boilerplate-Code
+            für das Mapping von Objekten reduziert. Anstatt manuell Code schreiben zu müssen, der Daten von einem Objekt in ein anderes
+            kopiert, definiert man einfach eine Schnittstellte mit Mapping-Methoden, und MapStruct generiert die Implementierung
+
+            -->
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct</artifactId>
+                <version>${mapstruct.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct-processor</artifactId>
+                <version>${mapstruct.version}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+</project>

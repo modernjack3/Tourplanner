@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="at.fhtw.tourplanner.view.controller.TourDetailsController"
+      spacing="10" style="-fx-padding: 10;">
+    <Label text="Tour Details" style="-fx-font-size: 16; -fx-font-weight: bold;" />
+    <TextField fx:id="nameField" promptText="Name"/>
+    <TextArea fx:id="descField" promptText="Description" prefRowCount="3"/>
+
+    <Button text="Save" onAction="#onSave" />
+</VBox>
